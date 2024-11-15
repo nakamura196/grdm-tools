@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "GakuNin RDM API client",
+    "section": "",
+    "text": "source\n\nGrdmClient\n\n GrdmClient (token:str, domain:str='rdm.nii.ac.jp')\n\n*クライアントの初期化\nArgs: token (str): アクセストークン domain (str): ドメイン名*\n\nsource\n\n\nGrdmClient.get_users_me\n\n GrdmClient.get_users_me ()\n\nユーザ情報を取得する\n\nsource\n\n\nGrdmClient.upload_file\n\n GrdmClient.upload_file (file_path:str, url:str)\n\n*ファイルをアップロードする\nArgs: file_path (str): ファイルのパス url (str): アップロード先のURL*\n\nsource\n\n\nGrdmClient.get_zotero_contents\n\n GrdmClient.get_zotero_contents (project_id, folder_id)\n\n*Zoteroのコンテンツを取得する\nArgs: project_id (str): プロジェクトID folder_id (str): フォルダID*",
+    "crumbs": [
+      "GakuNin RDM API client"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GakuNin RDM Tools",
+    "section": "",
+    "text": "If you are new to using nbdev here are some useful pointers to get you started.\n\n\n# make sure grdm_tools package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to grdm_tools\n$ nbdev_prepare",
+    "crumbs": [
+      "GakuNin RDM Tools"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "GakuNin RDM Tools",
+    "section": "",
+    "text": "If you are new to using nbdev here are some useful pointers to get you started.\n\n\n# make sure grdm_tools package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to grdm_tools\n$ nbdev_prepare",
+    "crumbs": [
+      "GakuNin RDM Tools"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "GakuNin RDM Tools",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/nakamura196/grdm-tools.git\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages.",
+    "crumbs": [
+      "GakuNin RDM Tools"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "GakuNin RDM Tools",
+    "section": "How to use",
+    "text": "How to use\nInitialize the GakuNinRDM class.\n\nfrom grdm_tools.api import GrdmClient\nimport os\n\nclient = GrdmClient(\n   token=os.environ.get('GRDM_TOKEN')\n)\n\nRetrieve user information.\n\nimport json\n\nprofile = client.get_users_me()\n\nif profile:\n    data = profile[\"data\"]\n    attributes = data[\"attributes\"]\n    user = {\n        'id': data['id'],\n        'name': attributes['full_name'],\n    }\n    print(json.dumps(user, indent=2))\n\n{\n  \"id\": \"hj3a6\",\n  \"name\": \"Satoru Nakamura\"\n}",
+    "crumbs": [
+      "GakuNin RDM Tools"
+    ]
+  }
+]
